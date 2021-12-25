@@ -11,7 +11,7 @@ def main():
             result = True
         elif pattern_copy[count] == "*":
             try:
-                if count == len(pattern_copy) or pattern_copy[count + 1] == "?":
+                if count == len(pattern_copy) or pattern_copy[count + 1] == "?" or pattern_copy[count + 1] == "*":
                     result = True
 
                 else:
@@ -21,8 +21,6 @@ def main():
                     if pattern_copy[count + 1] == list_to_check[count]:
                         result = True
                         pattern_copy.pop(count)
-
-                        print(list_to_check[count])
             except:
                 result = True
                 break
@@ -30,27 +28,12 @@ def main():
         else:
             result = False
 
-        if result == False or len(pattern_copy) > len(list_to_check) or (
-                count + 2 > len(pattern_copy) and len(pattern_copy) < len(list_to_check)):
+        if result == False or len(pattern_copy) > len(list_to_check) or (count + 2 > len(pattern_copy) < len(list_to_check)):
             result = False
             break
-        if count + 2 > len(pattern_copy):
-            break
+        # if count + 2 > len(pattern_copy):
+        #     break
         count += 1
-
-        # if char == string_to_check[count] or char == "?":
-        #     result = True
-        # elif char == "*":
-        #     while pattern[count + 1] != string_to_check[count2]:
-        #         result = False
-        #         count2 += 1
-        #     if pattern[count + 1] == string_to_check[count2]:
-        #         result = True
-        #     count = count2
-        # else:
-        #     result = False
-        # count += 1
-        # count2 = count
     print(result)
 
 
